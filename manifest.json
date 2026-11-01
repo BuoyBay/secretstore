@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "name": "secretstore",
+  "version": "0.1.0",
+  "description": "Cross-platform protected large UTF-8 secret records with native credential stores, transactional chunking and cross-process locking"
+}

@@ -1,0 +1,20 @@
+{
+    "schema": 1,
+    "dependencies": {
+        "keychain": {
+            "git": "https://github.com/BuoyBay/keychain.git",
+            "rev": "refs/heads/main"
+        }
+    },
+    "files": [
+        "manifest.json",
+        "modules",
+        "resources",
+        "README.md",
+        "LICENSE",
+        "LICENSE-MIT.txt",
+        "LICENSE-APACHE.txt",
+        "LICENSE-DOCS.txt",
+        "NOTICE.md"
+    ]
+}

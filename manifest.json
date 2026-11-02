@@ -2,5 +2,5 @@
   "schema": 1,
   "name": "secretstore",
   "version": "0.1.0",
-  "description": "Persist protected UTF-8 records in native credential stores"
+  "description": "Protected UTF-8 records in native credential stores"
 }

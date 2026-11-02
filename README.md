@@ -1,4 +1,4 @@
-# Protected UTF-8 records in native credential stores
+# Native secret records
 
 Reusable protected storage for large UTF-8 secret records. Applications supply a
 stable service and account; storage survives application rebuilds and changes to

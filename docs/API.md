@@ -8,7 +8,8 @@ preferences-file fallback.
 
 Install `secretstore-0.1.0.buipkg`, `keychain-0.1.0.buipkg`, and the toolchain's
 `crypto-1.0.0.buipkg` into the consumer's `packages/` directory, then `Import
-secretstore`. Build with `python3 tools/build_secretstore.py`.
+secretstore`. Build with the native package builder described in
+[CONTRIBUTING](https://github.com/BuoyBay/secretstore/blob/main/CONTRIBUTING.md).
 
 ## API
 
@@ -68,18 +69,13 @@ allow a newly signed build, Linux needs a running unlocked Secret Service, and
 Windows uses the signed-in user's Credential Manager. This package does not
 bypass native prompts or grant all executables access to stored secrets.
 
-## Testing and status
+## Injectable storage
 
 `SecretRecordItems` is an injectable Read/Write/Remove transport. The injectable
 constructor `SecretRecordStore(service, account, items, singleItem = False)`
 supports offline tests of either storage format; set `singleItem` to True to
-exercise the macOS format on any host. Native locking is still exercised. `tests/run_studio_credentials_tests.py` is a
-sealed-package consumer testing large Unicode records, write/commit failure
-rollback, single-item migration and read counts, corruption, deletion tombstones,
-cross-process exclusion and process termination. It never opens a real user's credential items.
+exercise the macOS format on any host. The injected transport supports alternative storage backends while native locking remains active.
 
-The single-item policy and migration tests pass on Linux x86_64 with an injected
-item backend; all six target branches are compiler-checked. Actual macOS prompt
-behavior still requires validation on a Mac. Historical native-store results
-precede the single-item change; compiler checks do not imply native runtime
-coverage.
+The injectable backend permits exercising either storage policy on a supported
+host. Native macOS prompt behavior requires validation in the actual application;
+compiler checks do not establish prompt or keychain behavior.
